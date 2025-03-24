@@ -39,18 +39,26 @@ app.bg = {
 
 app.common = {
   init: function() {
-    return this.cycleCurrentArticle();
+    if (!document.querySelector('.article--started')) {
+      return;
+    }
+    $(".article--started").first().addClass("current");
+    return app.common.cycleCurrentArticle();
   },
   cycleCurrentArticle: function() {
     var articles, currentIndex;
     articles = document.querySelectorAll('.article--started');
     currentIndex = 0;
+    articles.forEach(function(article) {
+      return article.classList.remove('current');
+    });
+    articles[currentIndex].classList.add('current');
     return setInterval(function() {
+      currentIndex = (currentIndex + 1) % articles.length;
       articles.forEach(function(article) {
         return article.classList.remove('current');
       });
-      articles[currentIndex].classList.add('current');
-      return currentIndex = (currentIndex + 1) % articles.length;
+      return articles[currentIndex].classList.add('current');
     }, 3000);
   }
 };

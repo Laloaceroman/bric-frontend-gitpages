@@ -1684,7 +1684,10 @@ article.article--feature .article__icon {
   margin-bottom: 20px;
 }
 article.article--feature .article__icon img {
-  width: 80px;
+  width: initial;
+  height: initial;
+  max-width: 80px;
+  max-height: 78px;
 }
 article.article--feature .article__body {
   max-width: 80%;
@@ -1721,6 +1724,17 @@ article.article--box .article__body .article__title {
   }
 }
 article.article--why .article__image {
+  background-color: #d9d9d9;
+  border-radius: 15px;
+  padding: 10px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  width: 100px;
+  height: 100px;
   margin-bottom: 20px;
 }
 @media (min-width: 720px) {
@@ -1729,6 +1743,8 @@ article.article--why .article__image {
     width: 100%;
     max-width: 30%;
     margin-right: 20px;
+    width: 150px;
+    height: 150px;
   }
 }
 article.article--why .article__body .article__title {
